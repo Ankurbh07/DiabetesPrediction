@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body style="background-color:coral;">
+ <div class="login">
+											<h1 style="text-align:center">Diabetes Prediction </h1>
+
+<p> 
+In today's world due to sedentary life style of the city dwellers, diabetes have become a common disease. 
+It becomes imperative for everyone to keep an eye on thier vital signs. There are 8 vital predictors of diabetes.
+Below is a program which can help you determine are you diabetic or not as per your vital signs.
+
+</p>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<label for = "Pregnancies" > Pregnancies:</label> 
+		<input type="text" name="Pregnancies" placeholder="Example:- 1,2 etc." required="required" /><br><br>
+		<label for = "Glucose"> Glucose:</label>
+        <input type="text" name="Glucose" placeholder="Example:- 70 100" required="required" /><br><br>
+		<label for = "BloodPressure"> BloodPressure:</label>
+		<input type="text" name="BloodPressure" placeholder="Example:- 80 100" required="required" /><br><br>
+		<label for = "SkinThickness"> SkinThickness:</label>
+        <input type="text" name="SkinThickness" placeholder="Example:- 20 25" required="required" /><br><br>
+		<label for = "Insulin"> Insulin:</label>
+        <input type="text" name="Insulin" placeholder="Example:- 0 90 100" required="required" /><br><br>
+		<label for = "BMI"> BMI:</label>
+        <input type="text" name="BMI" placeholder="Example 22 25" required="required" /><br><br>
+		<label for = "DiabetesPedigreeFunction"> DiabetesPedigreeFunction:</label>
+        <input type="text" name="DiabetesPedigreeFunction" placeholder="Example:- 0.67 0.72" required="required" /><br><br>
+		<label for = "Age"> Age:</label>
+        <input type="text" name="Age" placeholder="Example:- 30 35" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+     <br>
+   <br>
+   <p style="font-weight: bold;">
+   {{ prediction_text }}
+   </p>
+ </div>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body style="background-color:coral;">
+ <div class="login">
+											<h1 style="text-align:center">Diabetes Prediction </h1>
+
+<p> 
+In today's world due to sedentary life style of the city dwellers, diabetes have become a common disease. 
+It becomes imperative for everyone to keep an eye on thier vital signs. There are 8 vital predictors of diabetes.
+Below is a program which can help you determine are you diabetic or not as per your vital signs.
+
+</p>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<label for = "Pregnancies" > Pregnancies:</label> 
+		<input type="text" name="Pregnancies" placeholder="Pregnancies" required="required" /><br><br>
+		<label for = "Glucose"> Glucose:</label>
+        <input type="text" name="Glucose" placeholder="Glucose" required="required" /><br><br>
+		<label for = "BloodPressure"> BloodPressure:</label>
+		<input type="text" name="BloodPressure" placeholder="Blood Pressure" required="required" /><br><br>
+		<label for = "SkinThickness"> SkinThickness:</label>
+        <input type="text" name="SkinThickness" placeholder="Skin Thickness" required="required" /><br><br>
+		<label for = "Insulin"> Insulin:</label>
+        <input type="text" name="Insulin" placeholder="Insulin" required="required" /><br><br>
+		<label for = "BMI"> BMI:</label>
+        <input type="text" name="BMI" placeholder="BMI" required="required" /><br><br>
+		<label for = "DiabetesPedigreeFunction"> DiabetesPedigreeFunction:</label>
+        <input type="text" name="DiabetesPedigreeFunction" placeholder="Diabetes Pedigree Function" required="required" /><br><br>
+		<label for = "Age"> Age:</label>
+        <input type="text" name="Age" placeholder="Age" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+     <br>
+   <br>
+   <p style="font-weight: bold;">
+   {{ prediction_text }}
+   </p>
+ </div>
+
+<p>
+You need to take control of your health by making the following changes:<br>
+1) Start Exercising Daily for 30 minutes <br>
+2) Eat Food in intervals <br>
+3) Avoid sugary food <br>
+4) Should not take unnecessary stress<br>
+5) Take proper sleep <br>
+
+</p>
+
+</body>
+</html>
